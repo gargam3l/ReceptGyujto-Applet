@@ -22,7 +22,7 @@ import java.lang.reflect.InvocationTargetException;
  * @author 604772006
  */
 public class GUI extends JApplet{
-    //private CardLayout cardLayout = new CardLayout();
+    private CardLayout cardLayout;
     //private JPanel cards= new JPanel(cardLayout);
     private JFrame frame = new JFrame();
     private MainPanel mPanel;
@@ -46,38 +46,12 @@ public class GUI extends JApplet{
     {
     
         Runnable r = new Runnable() {
-        public void run() {
+        public void run() 
+        {
+            displayApplet();
             
-            //add(new JLabel("Hello World!"));
-            
-            //setGuiControl(new Controller());
-            final CardLayout cardLayout = new CardLayout();
-            setLayout(cardLayout);
-            
-            mPanel = new MainPanel();
-            //newRPanel = new NewRecipePanel(guiControl);
-            //shRPanel = new ShowRecipePanel(guiControl);
-            //srchRPanel = new SearchRecipePanel(guiControl);
-            //mPanel.setGuiPanel(cards);
-            //shRPanel.setGuiPanel(cards);
-            //newRPanel.setGuiPanel(cards);
-            //srchRPanel.setGuiPanel(cards);
-            //mPanel.setpFrame(frame);
-            //shRPanel.setpFrame(frame);
-            //newRPanel.setpFrame(frame);
-            //srchRPanel.setpFrame(frame);
-
-            add(mPanel, "card1");
-            //cards.add(newRPanel, "card2");
-            //cards.add(shRPanel, "card3");
-            //cards.add(srchRPanel, "card4");
-            cardLayout.show(getContentPane(), "card1");
-
-
-            //setLayout(new CardLayout());
-            //add(cards);
                    
-      }
+        }
     };
     try 
     {
@@ -93,7 +67,37 @@ public class GUI extends JApplet{
 
 }
         
-        
+public void displayApplet()
+{
+    //add(new JLabel("Hello World!"));
+            
+            //setGuiControl(new Controller());
+            cardLayout = new CardLayout();
+            setLayout(cardLayout);
+            
+            mPanel = new MainPanel();
+            newRPanel = new NewRecipePanel();
+            shRPanel = new ShowRecipePanel();
+            srchRPanel = new SearchRecipePanel();
+            mPanel.setParent(this);
+            //shRPanel.setGuiPanel(cards);
+            //newRPanel.setGuiPanel(cards);
+            //srchRPanel.setGuiPanel(cards);
+            //mPanel.setpFrame(frame);
+            //shRPanel.setpFrame(frame);
+            //newRPanel.setpFrame(frame);
+            //srchRPanel.setpFrame(frame);
+
+            add(mPanel, "card1");
+            add(newRPanel, "card2");
+            add(shRPanel, "card3");
+            add(srchRPanel, "card4");
+            cardLayout.show(getContentPane(), "card1");
+
+
+            //setLayout(new CardLayout());
+            //add(cards);
+}
         
             
 
@@ -129,6 +133,12 @@ public class GUI extends JApplet{
         return (JPanel)this;
     }
 */
+
+    public CardLayout getCardLayout() {
+        return cardLayout;
+    }
+    
+    
     public SearchRecipePanel getSrchRPanel() {
         return srchRPanel;
     }

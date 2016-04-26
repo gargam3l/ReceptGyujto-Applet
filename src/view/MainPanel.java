@@ -17,6 +17,7 @@ public class MainPanel extends JPanel{
     private JButton receptKeres;
     private JButton kilepes;
     private boolean initialized;
+    private GUI parent;
     
     public MainPanel() {
 
@@ -28,7 +29,19 @@ public class MainPanel extends JPanel{
         space2 = new JLabel("");
         kilepes= new JButton("Kilépés");
         
-        //ujRecept.addActionListener(controller.getUjReceptPanelListener());
+        
+        ujRecept.addActionListener(new ActionListener() 
+        {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                
+                CardLayout cardLayout =  parent.getCardLayout();
+                cardLayout.show(parent.getContentPane(), "card2");
+            }
+        }
+        );
         //receptKeres.addActionListener(controller.getReceptKeresPanelListener());
         //kilepes.addActionListener(controller.getKilepes());
         
@@ -138,6 +151,14 @@ public class MainPanel extends JPanel{
     
     public JButton getKilepes() {
         return kilepes;
+    }
+
+    public GUI getParent() {
+        return parent;
+    }
+
+    public void setParent(GUI parent) {
+        this.parent = parent;
     }
 
     
