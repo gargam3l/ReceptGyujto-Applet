@@ -2,6 +2,8 @@ package view;
 
 import controller.Controller;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -33,6 +35,7 @@ public class NewRecipePanel  extends JPanel{
     private JLabel space6;
     private JLabel space7;
     private JLabel space8;
+    private GUI parent;
     
     public NewRecipePanel() {
         //construct components
@@ -65,7 +68,19 @@ public class NewRecipePanel  extends JPanel{
         btnOtevotEltavolit = new JButton("Eltávolít");
         otevoTabla= new JTable();
         
-        //btnVissza.addActionListener(controller.getVisszaGombListener());
+        btnVissza.addActionListener(new ActionListener() 
+        {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                
+                CardLayout cardLayout =  parent.getCardLayout();
+                cardLayout.show(parent.getContentPane(), "card1");
+            }
+        }
+        
+        );
         //btnMentes.addActionListener(controller.getMentesGombListener());
         //btnHozzaad.addActionListener(controller.getUjReceptOsszetevotHozzaadListener());
         //btnOtevotEltavolit.addActionListener(controller.getUjReceptOsszetevotEltavolitListener());
@@ -464,6 +479,14 @@ public class NewRecipePanel  extends JPanel{
     {
         //if (otevoTabla.getSelectedRow()== -1) throw new RuntimeException("Nincs összetevő kiválasztva. Eltávolításhoz válasszon ki összetevőt!");
         return otevoTabla.getSelectedRow();
+    }
+
+    public GUI getParent() {
+        return parent;
+    }
+
+    public void setParent(GUI parent) {
+        this.parent = parent;
     }
     
     

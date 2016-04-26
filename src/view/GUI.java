@@ -80,9 +80,9 @@ public void displayApplet()
             shRPanel = new ShowRecipePanel();
             srchRPanel = new SearchRecipePanel();
             mPanel.setParent(this);
-            //shRPanel.setGuiPanel(cards);
-            //newRPanel.setGuiPanel(cards);
-            //srchRPanel.setGuiPanel(cards);
+            shRPanel.setParent(this);
+            newRPanel.setParent(this);
+            srchRPanel.setParent(this);
             //mPanel.setpFrame(frame);
             //shRPanel.setpFrame(frame);
             //newRPanel.setpFrame(frame);
@@ -163,6 +163,16 @@ public void displayApplet()
     
 }
 */
+    
+    public void exit()
+    {
+       
+    System.out.println("Application is exiting.");
+    setVisible(false);
+    ;
+    System.exit(0);
+  } 
+    
     public Controller getGuiControl() {
         return guiControl;
     }

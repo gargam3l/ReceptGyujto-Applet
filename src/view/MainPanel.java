@@ -42,8 +42,29 @@ public class MainPanel extends JPanel{
             }
         }
         );
-        //receptKeres.addActionListener(controller.getReceptKeresPanelListener());
-        //kilepes.addActionListener(controller.getKilepes());
+        receptKeres.addActionListener(new ActionListener() 
+        {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                
+                CardLayout cardLayout =  parent.getCardLayout();
+                cardLayout.show(parent.getContentPane(), "card4");
+            }
+        }
+        
+        );
+        kilepes.addActionListener(new ActionListener() 
+        {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                parent.exit();
+            }
+        }
+        );
         
         //adjust size and set layout
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

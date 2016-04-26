@@ -24,6 +24,7 @@ public class SearchRecipePanel  extends JPanel{
     private JLabel space2;
     private JLabel space3;
     private JLabel space4;
+    private GUI parent;
     
     public SearchRecipePanel() {
         initialized = false;
@@ -45,7 +46,19 @@ public class SearchRecipePanel  extends JPanel{
         //rowSelectionModel.addListSelectionListener(controller.getReceptTablaSorListener());
         tablaPanel.setViewportView(talalatTabla);
         
-        //btnVissza.addActionListener(controller.getVisszaGombListener());
+        btnVissza.addActionListener(new ActionListener() 
+        {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                
+                CardLayout cardLayout =  parent.getCardLayout();
+                cardLayout.show(parent.getContentPane(), "card1");
+            }
+        }
+        
+        );
         //btnKereses.addActionListener(controller.getReceptKeresListener());
         //btnMegnyitas.addActionListener(controller.getReceptMutatPanelListener());  
         
@@ -221,6 +234,14 @@ public class SearchRecipePanel  extends JPanel{
 
     public void setInitialized(boolean initialized) {
         this.initialized = initialized;
+    }
+
+    public GUI getParent() {
+        return parent;
+    }
+
+    public void setParent(GUI parent) {
+        this.parent = parent;
     }
     
     

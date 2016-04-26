@@ -37,6 +37,8 @@ public class ShowRecipePanel  extends JPanel{
     private JLabel space8;
     private JLabel space9;
     
+    private GUI parent;
+    
     public ShowRecipePanel() {
     
         JLabel cim = new JLabel("Receptek megjelenítése");
@@ -60,7 +62,19 @@ public class ShowRecipePanel  extends JPanel{
         btnMentes = new JButton("Mentés");
         btnHozzaad= new JButton("Hozzáad");
         btnOtevotEltavolit = new JButton("Eltávolít");
-        //btnVissza.addActionListener(controller.getVisszaGombListener());
+        btnVissza.addActionListener(new ActionListener() 
+        {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                
+                CardLayout cardLayout =  parent.getCardLayout();
+                cardLayout.show(parent.getContentPane(), "card1");
+            }
+        }
+        
+        );
         //btnTorles.addActionListener(controller.getReceptTorlesListener());
         //btnMentes.addActionListener(controller.getReceptSzerkesztListener());
         //btnHozzaad.addActionListener(controller.getReceptMutatOsszetevotHozzaadListener());
@@ -492,5 +506,14 @@ public class ShowRecipePanel  extends JPanel{
         if (osszetevokTable.getModel().getValueAt(x, y).toString().equals("")) throw new RuntimeException("Összetevő mennyiség vagy leírás üres. Kérem adjon meg mennyiség ill leírás értéket az összetevőhöz!");
         return osszetevokTable.getModel().getValueAt(x, y).toString();
     }
+
+    public GUI getParent() {
+        return parent;
+    }
+
+    public void setParent(GUI parent) {
+        this.parent = parent;
+    }
+
     
 }
