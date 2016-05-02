@@ -75,10 +75,12 @@ public void displayApplet()
             cardLayout = new CardLayout();
             setLayout(cardLayout);
             
+            LogonPanel lPanel = new LogonPanel();
             mPanel = new MainPanel();
             newRPanel = new NewRecipePanel();
             shRPanel = new ShowRecipePanel();
             srchRPanel = new SearchRecipePanel();
+            lPanel.setParent(this);
             mPanel.setParent(this);
             shRPanel.setParent(this);
             newRPanel.setParent(this);
@@ -92,7 +94,8 @@ public void displayApplet()
             add(newRPanel, "card2");
             add(shRPanel, "card3");
             add(srchRPanel, "card4");
-            cardLayout.show(getContentPane(), "card1");
+            add(lPanel, "card5");
+            cardLayout.show(getContentPane(), "card5");
 
 
             //setLayout(new CardLayout());
@@ -115,8 +118,8 @@ public void displayApplet()
         frame.setVisible(true);
     }
 
-    
-    public MainPanel getmPanel() {
+    	
+	public MainPanel getmPanel() {
         return mPanel;
     }
 
