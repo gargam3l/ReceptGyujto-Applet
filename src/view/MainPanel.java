@@ -19,9 +19,10 @@ public class MainPanel extends JPanel{
     private boolean initialized;
     private GUI parent;
     
-    public MainPanel() {
+    public MainPanel(GUI gui) {
 
         //construct components
+        parent=gui;
         cim = new JLabel("Recept Kezelő");
         ujRecept = new JButton("Új recept hozzáadása");
         space1 = new JLabel("");
@@ -30,6 +31,10 @@ public class MainPanel extends JPanel{
         kilepes= new JButton("Kilépés");
         
         
+        ujRecept.addActionListener(parent.getController().getUjReceptPanelListener());
+        receptKeres.addActionListener(parent.getController().getReceptKeresPanelListener());
+        kilepes.addActionListener(parent.getController().getKilepes());
+        /*
         ujRecept.addActionListener(new ActionListener() 
         {
 
@@ -65,7 +70,8 @@ public class MainPanel extends JPanel{
             }
         }
         );
-        
+        */
+                
         //adjust size and set layout
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setPreferredSize (new Dimension (400, 650));

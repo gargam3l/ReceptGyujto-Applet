@@ -32,7 +32,8 @@ public class LogonPanel extends JPanel {
     private boolean initialized;
     private GUI parent;
 
-    public LogonPanel() {
+    public LogonPanel(GUI gui) {
+        parent=gui;
         initialized = false;
         cim = new JLabel("Bejelentkezés");
         nevBel = new JLabel("Név:");

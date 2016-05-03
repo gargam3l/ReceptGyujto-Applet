@@ -31,11 +31,28 @@ import view.*;
 public class Controller {
     private ReceptKezelo rKezelo;
     private GUI gui;
+
+    public GUI getGui() {
+        return gui;
+    }
+
+    public void setGui(GUI gui) {
+        this.gui = gui;
+    }
     
     
     public Controller() {
         
         //gui = new GUI(this);
+        rKezelo = new ReceptKezelo();
+        
+        
+        
+    }
+    
+    public Controller(GUI input) {
+        
+        gui = input;
         rKezelo = new ReceptKezelo();
         
         
@@ -63,10 +80,10 @@ public class Controller {
         return new ActionListener() {
              @Override public void actionPerformed (ActionEvent e) {
                  
-                 //CardLayout cardLayout = (CardLayout) gui.getCards().getLayout();
-                 //cardLayout.show(gui.getCards(), "card1");
-                 //rKezelo.setAktualisMennyisegTipus("");
-                 //rKezelo.getAktualisRecept().setMegnevezes("");
+                 CardLayout cardLayout = (CardLayout) gui.getCardLayout();
+                cardLayout.show(gui.getContentPane(), "card1");
+                 rKezelo.setAktualisMennyisegTipus("");
+                 rKezelo.getAktualisRecept().setMegnevezes("");
              }
          };
     }
@@ -76,8 +93,8 @@ public class Controller {
         return new ActionListener() {
              @Override public void actionPerformed (ActionEvent e) {
                  gui.getNewRPanel().setInitialized(false);
-                // CardLayout cardLayout = (CardLayout) gui.getCards().getLayout();
-                //cardLayout.show(gui.getCards(), "card2");
+                 CardLayout cardLayout = (CardLayout) gui.getCardLayout();
+                cardLayout.show(gui.getContentPane(), "card2");
                 gui.getNewRPanel().inicNewRecipePanelDefault();
                 
                 
@@ -97,8 +114,8 @@ public class Controller {
         return new ActionListener() {
              @Override public void actionPerformed (ActionEvent e) {
                  gui.getSrchRPanel().setInitialized(false);
-                 //CardLayout cardLayout = (CardLayout) gui.getCards().getLayout();
-                 //   cardLayout.show(gui.getCards(), "card4");
+                 CardLayout cardLayout = (CardLayout) gui.getCardLayout();
+                cardLayout.show(gui.getContentPane(), "card4");
                  gui.getSrchRPanel().inicSearchRecipePanelDefault(); 
                  
              }
@@ -112,8 +129,8 @@ public class Controller {
                  try{
                      String aktReceptNeve=rKezelo.getAktualisRecept().getMegnevezes();
                  gui.getShRPanel().setInitialized(false);
-                 //CardLayout cardLayout = (CardLayout) gui.getCards().getLayout();
-                  //  cardLayout.show(gui.getCards(), "card3");
+                 CardLayout cardLayout = (CardLayout) gui.getCardLayout();
+                cardLayout.show(gui.getContentPane(), "card3");
                     gui.getShRPanel().inicShowRecipePanelDefault();
                     //összetevő mennyiség típusok betöltése
                     gui.getShRPanel().setOtevokList(rKezelo.otevoMennyTipusok());

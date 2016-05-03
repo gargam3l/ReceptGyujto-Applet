@@ -39,8 +39,8 @@ public class ShowRecipePanel  extends JPanel{
     
     private GUI parent;
     
-    public ShowRecipePanel() {
-    
+    public ShowRecipePanel(GUI gui) {
+        parent=gui;
         JLabel cim = new JLabel("Receptek megjelenítése");
         JLabel receptek = new JLabel("Receptek");
         
@@ -75,11 +75,11 @@ public class ShowRecipePanel  extends JPanel{
         }
         
         );
-        //btnTorles.addActionListener(controller.getReceptTorlesListener());
-        //btnMentes.addActionListener(controller.getReceptSzerkesztListener());
-        //btnHozzaad.addActionListener(controller.getReceptMutatOsszetevotHozzaadListener());
-        //btnOtevotEltavolit.addActionListener(controller.getReceptMutatOsszetevotEltavolitListener());
-        //osszetevokList.getSelectionModel().addListSelectionListener(controller.getReceptMutatListaElemListener());
+        btnTorles.addActionListener(parent.getController().getReceptTorlesListener());
+        btnMentes.addActionListener(parent.getController().getReceptSzerkesztListener());
+        btnHozzaad.addActionListener(parent.getController().getReceptMutatOsszetevotHozzaadListener());
+        btnOtevotEltavolit.addActionListener(parent.getController().getReceptMutatOsszetevotEltavolitListener());
+        osszetevokList.getSelectionModel().addListSelectionListener(parent.getController().getReceptMutatListaElemListener());
         osszetevokList.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         osszetevokTable= new JTable();
         space1 = new JLabel("");
@@ -94,7 +94,7 @@ public class ShowRecipePanel  extends JPanel{
                
         ListSelectionModel rowSelectionModel=osszetevokTable.getSelectionModel();
         rowSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        //rowSelectionModel.addListSelectionListener(controller.getReceptMutatTablaSorListener());
+        rowSelectionModel.addListSelectionListener(parent.getController().getReceptMutatTablaSorListener());
         JScrollPane tableScrollPane=new JScrollPane();
         tableScrollPane.setViewportView(osszetevokTable);
         

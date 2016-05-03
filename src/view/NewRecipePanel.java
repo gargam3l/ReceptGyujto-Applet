@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
@@ -37,8 +39,9 @@ public class NewRecipePanel  extends JPanel{
     private JLabel space8;
     private GUI parent;
     
-    public NewRecipePanel() {
+    public NewRecipePanel(GUI gui) {
         //construct components
+        parent=gui;
         initialized = false;
         cim = new JLabel("Új recept felvétel");
         JLabel rnevLabel = new JLabel("Recept neve");
@@ -68,6 +71,8 @@ public class NewRecipePanel  extends JPanel{
         btnOtevotEltavolit = new JButton("Eltávolít");
         otevoTabla= new JTable();
         
+        
+        /*
         btnVissza.addActionListener(new ActionListener() 
         {
 
@@ -81,15 +86,72 @@ public class NewRecipePanel  extends JPanel{
         }
         
         );
-        //btnMentes.addActionListener(controller.getMentesGombListener());
-        //btnHozzaad.addActionListener(controller.getUjReceptOsszetevotHozzaadListener());
-        //btnOtevotEltavolit.addActionListener(controller.getUjReceptOsszetevotEltavolitListener());
-        //otevoList.getSelectionModel().addListSelectionListener(controller.getUjReceptListaElemListener());
+        btnMentes.addActionListener(new ActionListener() 
+        {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                
+                //Mentés
+            }
+        }
+        
+        );
+        btnHozzaad.addActionListener(new ActionListener() 
+        {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                
+                //Hozzáad
+            }
+        }
+        
+        );
+        btnOtevotEltavolit.addActionListener(new ActionListener() 
+        {
+
+            @Override
+            public void actionPerformed(ActionEvent e) 
+            {
+                
+                //Eltűvolít
+            }
+        }
+        
+        );
+        otevoList.getSelectionModel().addListSelectionListener(new ListSelectionListener() 
+        {
+
+            @Override
+            public void valueChanged(ListSelectionEvent e)
+            {
+                
+                //Lista elem kiválasztva
+            }
+        }
+        
+        );
+                
+                */
         otevoList.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
                         
         ListSelectionModel rowSelectionModel=otevoTabla.getSelectionModel();
         rowSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        //rowSelectionModel.addListSelectionListener(controller.getUjReceptTablaSorListener());
+        rowSelectionModel.addListSelectionListener(new ListSelectionListener() 
+        {
+
+            @Override
+            public void valueChanged(ListSelectionEvent e)
+            {
+                
+                //Tábla elem kiválasztva
+            }
+        }
+        
+        );
         JScrollPane tableScrollPane=new JScrollPane();
         tableScrollPane.setViewportView(otevoTabla);
         

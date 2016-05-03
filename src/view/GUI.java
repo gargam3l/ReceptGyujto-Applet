@@ -31,6 +31,15 @@ public class GUI extends JApplet{
     private ShowRecipePanel shRPanel;
     private Controller guiControl;
     public final String[] RECEPT_OSZLOP_NEVEK = {"Mennyiség", "Egység", "Összetevő"};
+    private Controller controller;
+
+    public Controller getController() {
+        return controller;
+    }
+
+    public void setController(Controller controller) {
+        this.controller = controller;
+    }
 
     /*
     public GUI(Controller controller)
@@ -44,18 +53,22 @@ public class GUI extends JApplet{
     @Override
     public void init()
     {
+        controller = new Controller();
+        controller.setGui(this);
     
-        Runnable r = new Runnable() {
+        Runnable r = new Runnable() 
+        {
         public void run() 
         {
             displayApplet();
             
                    
         }
-    };
+        };
     try 
     {
       SwingUtilities.invokeAndWait(r);
+      
     } catch(InterruptedException ie) 
     {
       ie.printStackTrace();
@@ -63,7 +76,8 @@ public class GUI extends JApplet{
     {
       ite.printStackTrace();
     }
-
+    
+    
 
 }
         
@@ -75,16 +89,16 @@ public void displayApplet()
             cardLayout = new CardLayout();
             setLayout(cardLayout);
             
-            LogonPanel lPanel = new LogonPanel();
-            mPanel = new MainPanel();
-            newRPanel = new NewRecipePanel();
-            shRPanel = new ShowRecipePanel();
-            srchRPanel = new SearchRecipePanel();
-            lPanel.setParent(this);
-            mPanel.setParent(this);
-            shRPanel.setParent(this);
-            newRPanel.setParent(this);
-            srchRPanel.setParent(this);
+            LogonPanel lPanel = new LogonPanel(this);
+            mPanel = new MainPanel(this);
+            newRPanel = new NewRecipePanel(this);
+            shRPanel = new ShowRecipePanel(this);
+            srchRPanel = new SearchRecipePanel(this);
+            //lPanel.setParent(this);
+            //mPanel.setParent(this);
+            //shRPanel.setParent(this);
+            //newRPanel.setParent(this);
+            //srchRPanel.setParent(this);
             //mPanel.setpFrame(frame);
             //shRPanel.setpFrame(frame);
             //newRPanel.setpFrame(frame);

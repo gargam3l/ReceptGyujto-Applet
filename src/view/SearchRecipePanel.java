@@ -26,7 +26,8 @@ public class SearchRecipePanel  extends JPanel{
     private JLabel space4;
     private GUI parent;
     
-    public SearchRecipePanel() {
+    public SearchRecipePanel(GUI gui) {
+        parent=gui;
         initialized = false;
         rkeres = new JLabel("Recept Keresése");
         JLabel rnevLabel = new JLabel("Recept neve");
@@ -43,7 +44,7 @@ public class SearchRecipePanel  extends JPanel{
                 
         ListSelectionModel rowSelectionModel=talalatTabla.getSelectionModel();
         rowSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        //rowSelectionModel.addListSelectionListener(controller.getReceptTablaSorListener());
+        rowSelectionModel.addListSelectionListener(parent.getController().getReceptTablaSorListener());
         tablaPanel.setViewportView(talalatTabla);
         
         btnVissza.addActionListener(new ActionListener() 
@@ -59,8 +60,8 @@ public class SearchRecipePanel  extends JPanel{
         }
         
         );
-        //btnKereses.addActionListener(controller.getReceptKeresListener());
-        //btnMegnyitas.addActionListener(controller.getReceptMutatPanelListener());  
+        btnKereses.addActionListener(parent.getController().getReceptKeresListener());
+        btnMegnyitas.addActionListener(parent.getController().getReceptMutatPanelListener());  
         
         //adjust size and set layout
         setPreferredSize (new Dimension (400, 650));
