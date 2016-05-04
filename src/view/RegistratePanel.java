@@ -119,7 +119,7 @@ public class RegistratePanel extends JPanel {
         space3 = new JLabel("");
         this.btnVissza = new JButton("Vissza");
 
-        btnRegisztracio.addActionListener(controller.getVisszaGombListener());
+        btnRegisztracio.addActionListener(controller.getRogzitesGombListener());
         btnVissza.addActionListener(controller.getVisszaGombListener());
 
         //adjust size and set layout
