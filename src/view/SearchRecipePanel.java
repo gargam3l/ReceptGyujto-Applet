@@ -46,7 +46,8 @@ public class SearchRecipePanel  extends JPanel{
         rowSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         rowSelectionModel.addListSelectionListener(parent.getController().getReceptTablaSorListener());
         tablaPanel.setViewportView(talalatTabla);
-        
+        btnVissza.addActionListener(parent.getController().getVisszaGombListener());
+        /*
         btnVissza.addActionListener(new ActionListener() 
         {
 
@@ -60,6 +61,8 @@ public class SearchRecipePanel  extends JPanel{
         }
         
         );
+                
+                */
         btnKereses.addActionListener(parent.getController().getReceptKeresListener());
         btnMegnyitas.addActionListener(parent.getController().getReceptMutatPanelListener());  
         
