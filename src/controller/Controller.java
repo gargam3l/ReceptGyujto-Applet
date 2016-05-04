@@ -82,8 +82,8 @@ public class Controller {
                  
                  CardLayout cardLayout = (CardLayout) gui.getCardLayout();
                 cardLayout.show(gui.getContentPane(), "card1");
-                 rKezelo.setAktualisMennyisegTipus("");
-                 rKezelo.getAktualisRecept().setMegnevezes("");
+                 //rKezelo.setAktualisMennyisegTipus("");
+                 //rKezelo.getAktualisRecept().setMegnevezes("");
              }
          };
     }

@@ -62,6 +62,7 @@ public class ShowRecipePanel  extends JPanel{
         btnMentes = new JButton("Mentés");
         btnHozzaad= new JButton("Hozzáad");
         btnOtevotEltavolit = new JButton("Eltávolít");
+        /*
         btnVissza.addActionListener(new ActionListener() 
         {
 
@@ -75,6 +76,8 @@ public class ShowRecipePanel  extends JPanel{
         }
         
         );
+                */
+        btnVissza.addActionListener(parent.getController().getVisszaGombListener());
         btnTorles.addActionListener(parent.getController().getReceptTorlesListener());
         btnMentes.addActionListener(parent.getController().getReceptSzerkesztListener());
         btnHozzaad.addActionListener(parent.getController().getReceptMutatOsszetevotHozzaadListener());

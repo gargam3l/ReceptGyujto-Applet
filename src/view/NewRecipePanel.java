@@ -71,7 +71,16 @@ public class NewRecipePanel  extends JPanel{
         btnOtevotEltavolit = new JButton("Eltávolít");
         otevoTabla= new JTable();
         
+        btnVissza.addActionListener(parent.getController().getVisszaGombListener());
+        btnMentes.addActionListener(parent.getController().getMentesGombListener());
+        btnHozzaad.addActionListener(parent.getController().getUjReceptOsszetevotHozzaadListener());
+        btnOtevotEltavolit.addActionListener(parent.getController().getUjReceptOsszetevotEltavolitListener());
+        otevoList.getSelectionModel().addListSelectionListener(parent.getController().getUjReceptListaElemListener());
         
+                        
+        ListSelectionModel rowSelectionModel=otevoTabla.getSelectionModel();
+        
+        rowSelectionModel.addListSelectionListener(parent.getController().getUjReceptTablaSorListener());
         /*
         btnVissza.addActionListener(new ActionListener() 
         {
@@ -138,8 +147,9 @@ public class NewRecipePanel  extends JPanel{
                 */
         otevoList.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
                         
-        ListSelectionModel rowSelectionModel=otevoTabla.getSelectionModel();
+        
         rowSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        /*
         rowSelectionModel.addListSelectionListener(new ListSelectionListener() 
         {
 
@@ -152,6 +162,7 @@ public class NewRecipePanel  extends JPanel{
         }
         
         );
+                */
         JScrollPane tableScrollPane=new JScrollPane();
         tableScrollPane.setViewportView(otevoTabla);
         
