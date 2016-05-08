@@ -66,6 +66,7 @@ public class RegistratePanel extends JPanel {
         nevReg.setFont(new Font("Courier New", 0, 14));
 
         userNeveReg.setBackground(Color.decode("#62B4CF"));
+        userNeveReg.setMaximumSize(new Dimension(800, 20));
 
         space1.setFont(new Font("Courier New", 1, 24));
         space1.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
@@ -73,6 +74,7 @@ public class RegistratePanel extends JPanel {
         jelszoReg.setFont(new Font("Courier New", 0, 14));
 
         userJelszoReg.setBackground(Color.decode("#62B4CF"));
+        userJelszoReg.setMaximumSize(new Dimension(800, 20));
 
         space2.setFont(new Font("Courier New", 1, 24));
         space2.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
@@ -126,6 +128,7 @@ public class RegistratePanel extends JPanel {
         nevReg.setFont(new Font("Courier New", 0, 14));
 
         userNeveReg.setBackground(Color.decode("#62B4CF"));
+        userNeveReg.setMaximumSize(new Dimension(800, 20));
 
         space1.setFont(new Font("Courier New", 1, 24));
         space1.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
@@ -133,6 +136,7 @@ public class RegistratePanel extends JPanel {
         jelszoReg.setFont(new Font("Courier New", 0, 14));
 
         userJelszoReg.setBackground(Color.decode("#62B4CF"));
+        userJelszoReg.setMaximumSize(new Dimension(800, 20));
 
         space2.setFont(new Font("Courier New", 1, 24));
         space2.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));

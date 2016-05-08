@@ -82,6 +82,7 @@ public class LogonPanel extends JPanel {
         nevBel.setFont(new Font("Courier New", 0, 14));
 
         userNeveBel.setBackground(Color.decode("#62B4CF"));
+        userNeveBel.setMaximumSize(new Dimension(800, 20));
 
         space1.setFont(new Font("Courier New", 1, 24));
         space1.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
@@ -89,6 +90,7 @@ public class LogonPanel extends JPanel {
         jelszoBel.setFont(new Font("Courier New", 0, 14));
 
         userJelszoBel.setBackground(Color.decode("#62B4CF"));
+        userJelszoBel.setMaximumSize(new Dimension(800, 20));
 
         space2.setFont(new Font("Courier New", 1, 24));
         space2.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
@@ -111,6 +113,7 @@ public class LogonPanel extends JPanel {
         add(userNeveBel);
         add(space1);
         add(jelszoBel);
+        add(userJelszoBel);
         add(space2);
         add(btnBelepes);
         add(space3);
