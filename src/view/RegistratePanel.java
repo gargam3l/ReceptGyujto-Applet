@@ -28,7 +28,8 @@ public class RegistratePanel extends JPanel {
     private boolean initialized;
     private GUI parent;
 
-    public RegistratePanel() {
+    public RegistratePanel(GUI gui) {
+        parent=gui;
         initialized = false;
         cim = new JLabel("Regisztráció");
         nevReg = new JLabel("Név:");
@@ -51,16 +52,7 @@ public class RegistratePanel extends JPanel {
             }
         }
         );
-        btnVissza.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                CardLayout cardLayout = parent.getCardLayout();
-                cardLayout.show(parent.getContentPane(), "card5");
-            }
-        }
-        );
+        btnVissza.addActionListener(parent.getController().getKijelentkezesGombListener());
 
         //adjust size and set layout
         setPreferredSize(new Dimension(400, 650));
@@ -119,8 +111,8 @@ public class RegistratePanel extends JPanel {
         space3 = new JLabel("");
         this.btnVissza = new JButton("Vissza");
 
-        btnRegisztracio.addActionListener(controller.getRogzitesGombListener());
-        btnVissza.addActionListener(controller.getVisszaGombListener());
+        btnRegisztracio.addActionListener(parent.getController().getRogzitesGombListener());
+        btnVissza.addActionListener(parent.getController().getVisszaGombListener());
 
         //adjust size and set layout
         setPreferredSize(new Dimension(400, 650));

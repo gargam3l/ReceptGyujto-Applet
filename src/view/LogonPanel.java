@@ -25,7 +25,8 @@ public class LogonPanel extends JPanel {
     private boolean initialized;
     private GUI parent;
 
-    public LogonPanel() {
+    public LogonPanel(GUI gui) {
+        parent=gui;
         initialized = false;
         cim = new JLabel("Bejelentkezés");
         nevBel = new JLabel("Név:");
@@ -118,7 +119,7 @@ public class LogonPanel extends JPanel {
         add(btnKilepes);
 
     }
-
+/*
     public LogonPanel(Controller controller) {
         initialized = false;
         cim = new JLabel("Bejelentkezés");
@@ -187,7 +188,7 @@ public class LogonPanel extends JPanel {
         add(btnKilepes);
 
     }
-
+*/
     public void addController(ActionListener controller) {
         this.btnBelepes.addActionListener(controller);
         this.btnRegisztracio.addActionListener(controller);

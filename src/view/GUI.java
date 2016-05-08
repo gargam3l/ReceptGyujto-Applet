@@ -78,9 +78,9 @@ public class GUI extends JApplet {
         cardLayout = new CardLayout();
         setLayout(cardLayout);
 
-        LogonPanel lPanel = new LogonPanel();
-        RegistratePanel rPanel = new RegistratePanel();
-        mPanel = new MainPanel();
+        LogonPanel lPanel = new LogonPanel(this);
+        RegistratePanel rPanel = new RegistratePanel(this);
+        mPanel = new MainPanel(this);
         newRPanel = new NewRecipePanel(this);
         shRPanel = new ShowRecipePanel(this);
         srchRPanel = new SearchRecipePanel(this);
