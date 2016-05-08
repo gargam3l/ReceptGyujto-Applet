@@ -134,8 +134,8 @@ public class LogonPanel extends JPanel {
         space4 = new JLabel("");
         this.btnKilepes = new JButton("Kilépés");
 
-        btnBelepes.addActionListener(controller.getBelepesGombListener());
-        btnRegisztracio.addActionListener(controller.getRegisztracioGombListener());
+        btnBelepes.addActionListener(controller.getVisszaGombListener());
+        btnRegisztracio.addActionListener(controller.getVisszaGombListener());
         btnKilepes.addActionListener(controller.getKilepes());
 
         //adjust size and set layout
