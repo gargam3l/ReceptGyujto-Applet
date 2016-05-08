@@ -19,16 +19,20 @@ public class MainPanel extends JPanel {
     private boolean initialized;
     private GUI parent;
 
-    public MainPanel() {
-
+    public MainPanel(GUI gui) {
+        parent=gui;
         //construct components
         cim = new JLabel("Recept Kezelő");
         ujRecept = new JButton("Új recept hozzáadása");
         space1 = new JLabel("");
         receptKeres = new JButton("Recept Keresése");
         space2 = new JLabel("");
-        vissza = new JButton("Vissza");
+        vissza = new JButton("Kijelentkezés");
 
+        ujRecept.addActionListener(parent.getController().getUjReceptPanelListener());
+        receptKeres.addActionListener(parent.getController().getReceptKeresPanelListener());
+        vissza.addActionListener(parent.getController().getKijelentkezesGombListener());
+        /*
         ujRecept.addActionListener(new ActionListener() {
 
             @Override
@@ -58,7 +62,7 @@ public class MainPanel extends JPanel {
             }
         }
         );
-
+*/
         //adjust size and set layout
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setPreferredSize(new Dimension(400, 650));
@@ -89,7 +93,7 @@ public class MainPanel extends JPanel {
         add(vissza);
 
     }
-
+/*
     public MainPanel(Controller controller) {
 
         //construct components
@@ -134,7 +138,7 @@ public class MainPanel extends JPanel {
         add(vissza);
 
     }
-
+*/
     public void addController(ActionListener controller) {
         //System.out.println("View      : adding controller");
         this.ujRecept.addActionListener(controller);
