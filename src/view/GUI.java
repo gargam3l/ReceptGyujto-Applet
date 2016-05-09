@@ -16,6 +16,7 @@ import javax.swing.*;
 import model.ReceptKezelo;
 import java.applet.*;
 import java.lang.reflect.InvocationTargetException;
+//import ojdbc14.jar;
 
 /**
  *
