@@ -3,8 +3,12 @@ package view;
 import controller.Controller;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.URL;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import model.ReceptKliens;
 
 public class LogonPanel extends JPanel {
 
@@ -35,6 +39,8 @@ public class LogonPanel extends JPanel {
     public LogonPanel(GUI gui) {
         parent=gui;
         initialized = false;
+        JTextField testTxt= new JTextField(30);
+        testTxt.setText(ReceptKliens.kapcsolatTeszt());
         cim = new JLabel("Bejelentkezés");
         nevBel = new JLabel("Név:");
         this.userNeveBel = new JTextField(30);
@@ -138,6 +144,8 @@ public class LogonPanel extends JPanel {
 
         //add components
         add(cim);
+        //tesztelésre
+        //add(testTxt);
         add(nevBel);
         add(userNeveBel);
         add(space1);
@@ -283,4 +291,28 @@ public class LogonPanel extends JPanel {
         return btnKilepes;
     }
 
+    private String testDBServ() {
+    try {
+    // Construct a URL referring to the servlet
+    //URL url = new URL(getCodeBase(), "/TestServlet");
+    URL url = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=test");
+    
+    Reader reader = new InputStreamReader(url.openStream(), "UTF-8");
+    // Return the string representation of the Date
+    String servRead="";
+    int r;
+        while ((r = reader.read()) != -1) {
+            char ch = (char) r;
+            servRead= new StringBuilder(servRead).append(ch).toString();
+        }
+//return reader.toString();
+    return servRead;
+  }
+  catch (Exception e) {
+    // If there was a problem, print to System.out
+    // (typically the Java console) and return null
+    e.printStackTrace();
+    return e.toString()+" "+e.getMessage()+" "+ e.getLocalizedMessage();
+  }
+  }
 }

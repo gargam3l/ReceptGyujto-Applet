@@ -15,8 +15,10 @@ import java.util.Observer;
 import javax.swing.*;
 import model.ReceptKezelo;
 import java.applet.*;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.lang.reflect.InvocationTargetException;
-//import ojdbc14.jar;
+import java.net.URL;
 
 /**
  *
@@ -88,6 +90,7 @@ public void displayApplet()
             
             //setGuiControl(new Controller());
             cardLayout = new CardLayout();
+            
             setLayout(cardLayout);
             
             LogonPanel lPanel = new LogonPanel(this);
