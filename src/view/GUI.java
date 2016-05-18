@@ -3,9 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package view;
-
 
 import controller.Controller;
 import java.awt.*;
@@ -24,7 +22,8 @@ import java.net.URL;
  *
  * @author 604772006
  */
-public class GUI extends JApplet{
+public class GUI extends JApplet {
+
     private CardLayout cardLayout;
     //private JPanel cards= new JPanel(cardLayout);
     private JFrame frame = new JFrame();
@@ -52,92 +51,78 @@ public class GUI extends JApplet{
         
         
     }
-    */
+     */
     @Override
-    public void init()
-    {
+    public void init() {
         controller = new Controller();
         controller.setGui(this);
-    
-        Runnable r = new Runnable() 
-        {
-        public void run() 
-        {
-            displayApplet();
-            
-                   
-        }
+
+        Runnable r = new Runnable() {
+            public void run() {
+                displayApplet();
+
+            }
         };
-    try 
-    {
-      SwingUtilities.invokeAndWait(r);
-      
-    } catch(InterruptedException ie) 
-    {
-      ie.printStackTrace();
-    } catch (InvocationTargetException ite) 
-    {
-      ite.printStackTrace();
+        try {
+            SwingUtilities.invokeAndWait(r);
+
+        } catch (InterruptedException ie) {
+            ie.printStackTrace();
+        } catch (InvocationTargetException ite) {
+            ite.printStackTrace();
+        }
+
     }
-    
-    
 
-}
-        
-public void displayApplet()
-{
-    //add(new JLabel("Hello World!"));
-            
-            //setGuiControl(new Controller());
-            cardLayout = new CardLayout();
-            
-            setLayout(cardLayout);
-            
-            LogonPanel lPanel = new LogonPanel(this);
-            mPanel = new MainPanel(this);
-            newRPanel = new NewRecipePanel(this);
-            shRPanel = new ShowRecipePanel(this);
-            srchRPanel = new SearchRecipePanel(this);
-            //lPanel.setParent(this);
-            //mPanel.setParent(this);
-            //shRPanel.setParent(this);
-            //newRPanel.setParent(this);
-            //srchRPanel.setParent(this);
-            //mPanel.setpFrame(frame);
-            //shRPanel.setpFrame(frame);
-            //newRPanel.setpFrame(frame);
-            //srchRPanel.setpFrame(frame);
+    public void displayApplet() {
+        //add(new JLabel("Hello World!"));
 
-            add(mPanel, "card1");
-            add(newRPanel, "card2");
-            add(shRPanel, "card3");
-            add(srchRPanel, "card4");
-            add(lPanel, "card5");
-            cardLayout.show(getContentPane(), "card5");
+        //setGuiControl(new Controller());
+        cardLayout = new CardLayout();
+        setLayout(cardLayout);
 
+        LogonPanel lPanel = new LogonPanel(this);
+        RegistratePanel rPanel = new RegistratePanel(this);
+        mPanel = new MainPanel(this);
+        newRPanel = new NewRecipePanel(this);
+        shRPanel = new ShowRecipePanel(this);
+        srchRPanel = new SearchRecipePanel(this);
+        //lPanel.setParent(this);
+        //mPanel.setParent(this);
+        //shRPanel.setParent(this);
+        //newRPanel.setParent(this);
+        //srchRPanel.setParent(this);
+        //mPanel.setpFrame(frame);
+        //shRPanel.setpFrame(frame);
+        //newRPanel.setpFrame(frame);
+        //srchRPanel.setpFrame(frame);
 
-            //setLayout(new CardLayout());
-            //add(cards);
-}
-        
-            
+        add(mPanel, "card1");
+        add(newRPanel, "card2");
+        add(shRPanel, "card3");
+        add(srchRPanel, "card4");
+        add(lPanel, "card5");
+        add(rPanel, "card6");
+        cardLayout.show(getContentPane(), "card5");
 
-    public void displayGUI()
-    {
-        
+        //setLayout(new CardLayout());
+        //add(cards);
+    }
+
+    public void displayGUI() {
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
         frame.add(this, BorderLayout.CENTER);
         //frame.getContentPane().add(this);
         //frame.setLayout(cardLayout);
         frame.setTitle("Chlebovics Kornél(VYSQGW) & Papp Zoltán(N3GM04)");
-        frame.pack();   
+        frame.pack();
         frame.setLocationByPlatform(true);
         frame.setVisible(true);
     }
 
-    	
-	public MainPanel getmPanel() {
+    public MainPanel getmPanel() {
         return mPanel;
     }
 
@@ -153,18 +138,15 @@ public void displayApplet()
     public JPanel getCards() {
         return (JPanel)this;
     }
-*/
-
+     */
     public CardLayout getCardLayout() {
         return cardLayout;
     }
-    
-    
+
     public SearchRecipePanel getSrchRPanel() {
         return srchRPanel;
     }
-    
-    
+
     /*
     public JPanel getCurrentCard()
 {
@@ -183,17 +165,15 @@ public void displayApplet()
     
     
 }
-*/
-    
-    public void exit()
-    {
-       
-    System.out.println("Application is exiting.");
-    setVisible(false);
-    ;
-    System.exit(0);
-  } 
-    
+     */
+    public void exit() {
+
+        System.out.println("Application is exiting.");
+        setVisible(false);
+        ;
+        System.exit(0);
+    }
+
     public Controller getGuiControl() {
         return guiControl;
     }
@@ -205,7 +185,5 @@ public void displayApplet()
     public JFrame getFrame() {
         return frame;
     }
-    
-    
-    
+
 }

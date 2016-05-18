@@ -21,15 +21,8 @@ public class LogonPanel extends JPanel {
     private JLabel space2;
     private JButton btnBelepes;
     private JLabel space3;
-    private JLabel regisztracio;
-    private JLabel nevReg;
-    private JTextField userNeveReg;
-    private JLabel space4;
-    private JLabel jelszoReg;
-    private JTextField userJelszoReg;
-    private JLabel space5;
     private JButton btnRegisztracio;
-    private JLabel space6;
+    private JLabel space4;
     private JButton btnKilepes;
     private JFrame pFrame;
     private JPanel guiPanel;
@@ -50,15 +43,8 @@ public class LogonPanel extends JPanel {
         space2 = new JLabel("");
         this.btnBelepes = new JButton("Belépés");
         space3 = new JLabel("");
-        regisztracio = new JLabel("Regisztráció");
-        nevReg = new JLabel("Név:");
-        this.userNeveReg = new JTextField(30);
-        space4 = new JLabel("");
-        jelszoReg = new JLabel("Jelszó:");
-        this.userJelszoReg = new JTextField(30);
-        space5 = new JLabel("");
         this.btnRegisztracio = new JButton("Regisztráció");
-        space6 = new JLabel("");
+        space4 = new JLabel("");
         this.btnKilepes = new JButton("Kilépés");
 
         btnBelepes.addActionListener(new ActionListener() {
@@ -77,7 +63,7 @@ public class LogonPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
 
                 CardLayout cardLayout = parent.getCardLayout();
-                cardLayout.show(parent.getContentPane(), "card1");
+                cardLayout.show(parent.getContentPane(), "card6");
             }
         }
         );
@@ -102,6 +88,7 @@ public class LogonPanel extends JPanel {
         nevBel.setFont(new Font("Courier New", 0, 14));
 
         userNeveBel.setBackground(Color.decode("#62B4CF"));
+        userNeveBel.setMaximumSize(new Dimension(800, 20));
 
         space1.setFont(new Font("Courier New", 1, 24));
         space1.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
@@ -109,6 +96,7 @@ public class LogonPanel extends JPanel {
         jelszoBel.setFont(new Font("Courier New", 0, 14));
 
         userJelszoBel.setBackground(Color.decode("#62B4CF"));
+        userJelszoBel.setMaximumSize(new Dimension(800, 20));
 
         space2.setFont(new Font("Courier New", 1, 24));
         space2.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
@@ -118,27 +106,10 @@ public class LogonPanel extends JPanel {
         space3.setFont(new Font("Courier New", 1, 24));
         space3.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
 
-        regisztracio.setFont(new Font("Courier New", 1, 24));
-        regisztracio.setBorder(new EmptyBorder(new Insets(1, 50, 50, 1)));
-
-        nevReg.setFont(new Font("Courier New", 0, 14));
-
-        userNeveReg.setBackground(Color.decode("#62B4CF"));
+        btnRegisztracio.setFont(new Font("Courier New", 1, 14));
 
         space4.setFont(new Font("Courier New", 1, 24));
         space4.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
-
-        jelszoReg.setFont(new Font("Courier New", 0, 14));
-
-        userJelszoReg.setBackground(Color.decode("#62B4CF"));
-
-        space5.setFont(new Font("Courier New", 1, 24));
-        space5.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
-
-        btnRegisztracio.setFont(new Font("Courier New", 1, 14));
-
-        space6.setFont(new Font("Courier New", 1, 24));
-        space6.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
 
         btnKilepes.setFont(new Font("Courier New", 1, 14));
 
@@ -150,22 +121,16 @@ public class LogonPanel extends JPanel {
         add(userNeveBel);
         add(space1);
         add(jelszoBel);
+        add(userJelszoBel);
         add(space2);
         add(btnBelepes);
         add(space3);
-        add(regisztracio);
-        add(nevReg);
-        add(userNeveReg);
-        add(space4);
-        add(jelszoReg);
-        add(userJelszoReg);
-        add(space5);
         add(btnRegisztracio);
-        add(space6);
+        add(space4);
         add(btnKilepes);
 
     }
-
+/*
     public LogonPanel(Controller controller) {
         initialized = false;
         cim = new JLabel("Bejelentkezés");
@@ -177,15 +142,8 @@ public class LogonPanel extends JPanel {
         space2 = new JLabel("");
         this.btnBelepes = new JButton("Belépés");
         space3 = new JLabel("");
-        regisztracio = new JLabel("Regisztráció");
-        nevReg = new JLabel("Név:");
-        this.userNeveReg = new JTextField(30);
-        space4 = new JLabel("");
-        jelszoReg = new JLabel("Jelszó:");
-        this.userJelszoReg = new JTextField(30);
-        space5 = new JLabel("");
         this.btnRegisztracio = new JButton("Regisztráció");
-        space6 = new JLabel("");
+        space4 = new JLabel("");
         this.btnKilepes = new JButton("Kilépés");
 
         btnBelepes.addActionListener(controller.getVisszaGombListener());
@@ -220,27 +178,10 @@ public class LogonPanel extends JPanel {
         space3.setFont(new Font("Courier New", 1, 24));
         space3.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
 
-        regisztracio.setFont(new Font("Courier New", 1, 24));
-        regisztracio.setBorder(new EmptyBorder(new Insets(1, 50, 50, 1)));
-
-        nevReg.setFont(new Font("Courier New", 0, 14));
-
-        userNeveReg.setBackground(Color.decode("#62B4CF"));
+        btnRegisztracio.setFont(new Font("Courier New", 1, 14));
 
         space4.setFont(new Font("Courier New", 1, 24));
         space4.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
-
-        jelszoReg.setFont(new Font("Courier New", 0, 14));
-
-        userJelszoReg.setBackground(Color.decode("#62B4CF"));
-
-        space5.setFont(new Font("Courier New", 1, 24));
-        space5.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
-
-        btnRegisztracio.setFont(new Font("Courier New", 1, 14));
-
-        space6.setFont(new Font("Courier New", 1, 24));
-        space6.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
 
         btnKilepes.setFont(new Font("Courier New", 1, 14));
 
@@ -253,19 +194,12 @@ public class LogonPanel extends JPanel {
         add(space2);
         add(btnBelepes);
         add(space3);
-        add(regisztracio);
-        add(nevReg);
-        add(userNeveReg);
-        add(space4);
-        add(jelszoReg);
-        add(userJelszoReg);
-        add(space5);
         add(btnRegisztracio);
-        add(space6);
+        add(space4);
         add(btnKilepes);
 
     }
-
+*/
     public void addController(ActionListener controller) {
         this.btnBelepes.addActionListener(controller);
         this.btnRegisztracio.addActionListener(controller);

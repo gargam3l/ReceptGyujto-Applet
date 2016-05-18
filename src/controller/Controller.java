@@ -436,6 +436,22 @@ public class Controller {
         }; 
 
     }
+
+    public ActionListener getRogzitesGombListener() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public ActionListener getKijelentkezesGombListener() {
+        return new ActionListener() {
+             @Override public void actionPerformed (ActionEvent e) {
+                 
+                 CardLayout cardLayout = (CardLayout) gui.getCardLayout();
+                cardLayout.show(gui.getContentPane(), "card5");
+                 //rKezelo.setAktualisMennyisegTipus("");
+                 //rKezelo.getAktualisRecept().setMegnevezes("");
+             }
+         };
+    }
     
     
 }
