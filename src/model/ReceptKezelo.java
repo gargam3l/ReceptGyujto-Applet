@@ -22,14 +22,14 @@ public class ReceptKezelo extends Observable  implements AdatbazisKapcsolat{
     private int aktualisOtevoSor;
 
     public ReceptKezelo() {
-        inic();
+        ReceptKliens.inic();
         //kapcsolatTeszt();
         tar= new ReceptTar();
         aktualisRecept = new Recept();
         aktualisOsszetevo = new Osszetevok();
         aktualisMennyisegTipus = "";
     }
-    
+    /*
     public void kapcsolatTeszt()
     {
         try {
@@ -47,7 +47,8 @@ public class ReceptKezelo extends Observable  implements AdatbazisKapcsolat{
             System.out.println(e.getMessage());
         }
     }
-    
+    */
+    /*
     public boolean tablaLetezik()
     {
         try {
@@ -399,7 +400,7 @@ public class ReceptKezelo extends Observable  implements AdatbazisKapcsolat{
         if (!tablaLetezik()) tablatLetrehoz();
         if (!tesztAdatBetoltve())tablaTesztAdatok();
     }
-    
+    */
     
     
     public static void kapcsolatNyit() {
