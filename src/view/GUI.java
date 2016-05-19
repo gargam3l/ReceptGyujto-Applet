@@ -16,7 +16,11 @@ import java.applet.*;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.lang.reflect.InvocationTargetException;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.ReceptKliens;
 
 /**
  *
@@ -44,13 +48,13 @@ public class GUI extends JApplet {
     }
 
     /*
-    public GUI(Controller controller)
-    {
-        setGuiControl(controller);
-        init();
+     public GUI(Controller controller)
+     {
+     setGuiControl(controller);
+     init();
         
         
-    }
+     }
      */
     @Override
     public void init() {
@@ -71,6 +75,7 @@ public class GUI extends JApplet {
         } catch (InvocationTargetException ite) {
             ite.printStackTrace();
         }
+        setURL();
 
     }
 
@@ -135,9 +140,9 @@ public class GUI extends JApplet {
     }
 
     /*
-    public JPanel getCards() {
-        return (JPanel)this;
-    }
+     public JPanel getCards() {
+     return (JPanel)this;
+     }
      */
     public CardLayout getCardLayout() {
         return cardLayout;
@@ -148,23 +153,23 @@ public class GUI extends JApplet {
     }
 
     /*
-    public JPanel getCurrentCard()
-{
-    JPanel card = null;
+     public JPanel getCurrentCard()
+     {
+     JPanel card = null;
 
-    for (Component comp : cards.getComponents() ) {
-        if (comp.isVisible() == true) {
-            card = (JPanel)comp;
-            System.out.println(card.getName() );
-        }
-    }
-    //System.out.println();
+     for (Component comp : cards.getComponents() ) {
+     if (comp.isVisible() == true) {
+     card = (JPanel)comp;
+     System.out.println(card.getName() );
+     }
+     }
+     //System.out.println();
 
-    return card;
+     return card;
     
     
     
-}
+     }
      */
     public void exit() {
 
@@ -184,6 +189,22 @@ public class GUI extends JApplet {
 
     public JFrame getFrame() {
         return frame;
+    }
+
+    public void setURL() {
+        URL currentPage = getCodeBase();
+        String protocol = currentPage.getProtocol();
+        String host = currentPage.getHost();
+        int port = currentPage.getPort();
+        String urlSuffix1 = "/ReceptGyujto-web";
+        String urlSuffix2= "/DBServ";
+        
+        try {
+            URL urlTemp=new URL(protocol, host, port, urlSuffix1);
+            ReceptKliens.setUrl(new URL(urlTemp, urlSuffix2));
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

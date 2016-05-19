@@ -442,6 +442,7 @@ public class ReceptKezelo extends Observable  implements AdatbazisKapcsolat{
     
     public ArrayList otevoMennyTipusok()
     {
+        /*
         ArrayList<String> eredmeny = new ArrayList<>() ;
         try {
             kapcsolatNyit();
@@ -460,6 +461,8 @@ public class ReceptKezelo extends Observable  implements AdatbazisKapcsolat{
             System.out.println(e.getMessage());
         }
         return eredmeny;
+                */
+        return ReceptKliens.otevoMennyTipusok();
     }
     
     public boolean receptLetezik(String receptNev)

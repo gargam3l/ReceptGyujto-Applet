@@ -44,7 +44,7 @@ public class Controller {
     public Controller() {
         
         //gui = new GUI(this);
-        //rKezelo = new ReceptKezelo();
+        rKezelo = new ReceptKezelo();
         
         
         
