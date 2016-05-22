@@ -15,7 +15,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.net.*;
 import java.applet.*;
-import java.io.ObjectInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -221,13 +222,19 @@ public class ReceptKliens {
         try {
             //URL dataURL = new URL(ReceptKliens.url, "?action=otevoMennyTipus");
             //JOptionPane.showMessageDialog(null, dataURL.toString(),"URL", JOptionPane.ERROR_MESSAGE);
-            URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=otevoMennyTipus");
+            URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=receptetMent");
             URLConnection connection = dataURL.openConnection();
             connection.setUseCaches(false);
-            ObjectInputStream in = new ObjectInputStream(connection.getInputStream());
+            connection.setDoOutput(true);
+            connection.setRequestProperty("Content-Type", "application/x-java-serialized-object");
+            ObjectOutputStream outputToServer = new ObjectOutputStream(connection.getOutputStream());
+            outputToServer.writeObject(recept);
+            outputToServer.flush();
+            outputToServer.close();
+            
             //eredmeny = (ArrayList<String>) in.readObject();
 
-            in.close();
+            
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

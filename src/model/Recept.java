@@ -6,6 +6,7 @@
 
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 import javax.swing.table.DefaultTableModel;
@@ -14,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Chlebovics Kornél
  */
-public class Recept {
+public class Recept implements Serializable{
     private String megnevezes;
     private String leiras;
     private ArrayList<Osszetevok> osszetevok;
@@ -143,5 +144,24 @@ public class Recept {
     }
     
     
+    private synchronized void writeObject(java.io.ObjectOutputStream stream) throws java.io.IOException {
+        stream.defaultWriteObject();
+        
+        }
     
+
+    private void readObject(java.io.ObjectInputStream stream) throws
+            java.io.IOException, ClassNotFoundException {
+        stream.defaultReadObject();
+       
+    }
+    
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 71 * hash + Objects.hashCode(this.megnevezes);
+        hash = 71 * hash + Objects.hashCode(this.leiras);
+        hash = 71 * hash + Objects.hashCode(this.osszetevok);
+        return hash;
+    }
 }
