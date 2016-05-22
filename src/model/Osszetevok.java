@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 
@@ -13,7 +14,7 @@ import java.util.Objects;
  *
  * @author Kornél
  */
-public class Osszetevok {
+public class Osszetevok implements Serializable{
    String mennyiseg_egyseg;
    String mennyiseg_tipus;
    String osszetevo_fajta;

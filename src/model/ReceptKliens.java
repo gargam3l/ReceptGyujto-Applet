@@ -17,6 +17,8 @@ import java.net.*;
 import java.applet.*;
 import java.io.ByteArrayOutputStream;
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -218,30 +220,73 @@ public class ReceptKliens {
      }
      */
 
-    public void receptetMent(Recept recept) {
+    public static void receptetMent(Recept recept) {
         try {
             //URL dataURL = new URL(ReceptKliens.url, "?action=otevoMennyTipus");
             //JOptionPane.showMessageDialog(null, dataURL.toString(),"URL", JOptionPane.ERROR_MESSAGE);
+            //                     http://localhost:8084/ReceptGyujto-web/DBServ?action=otevoMennyTipus
             URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=receptetMent");
             URLConnection connection = dataURL.openConnection();
             connection.setUseCaches(false);
+            connection.setDoInput(true);
             connection.setDoOutput(true);
-            connection.setRequestProperty("Content-Type", "application/x-java-serialized-object");
-            ObjectOutputStream outputToServer = new ObjectOutputStream(connection.getOutputStream());
-            outputToServer.writeObject(recept);
-            outputToServer.flush();
-            outputToServer.close();
+            //connection.set
             
-            //eredmeny = (ArrayList<String>) in.readObject();
+             connection.setRequestProperty("Content-Type", "application/octet-stream");
+             
+             ObjectOutputStream outputToServer = new ObjectOutputStream(connection.getOutputStream()); 
+             outputToServer.writeObject(recept);
+             outputToServer.flush();
+             
+            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String line;
+            while ((line = in.readLine()) != null) {
+               System.out.println(line);
+            }
+            //outputToServer.close();
 
-            
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Hiba", JOptionPane.ERROR_MESSAGE);
+          Logger.getLogger(ReceptKliens.class.getName()).log(Level.SEVERE, null, e);
+          
+
         }
+    
     }
 
     public void receptetSzerkeszt(String aktualis, Recept uj) {
+        try {
+            //URL dataURL = new URL(ReceptKliens.url, "?action=otevoMennyTipus");
+            //JOptionPane.showMessageDialog(null, dataURL.toString(),"URL", JOptionPane.ERROR_MESSAGE);
+            //                     http://localhost:8084/ReceptGyujto-web/DBServ?action=otevoMennyTipus
+            URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=receptetMent");
+            URLConnection connection = dataURL.openConnection();
+            connection.setUseCaches(false);
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+            //connection.set
+            
+             connection.setRequestProperty("Content-Type", "application/octet-stream");
+             
+             ObjectOutputStream outputToServer = new ObjectOutputStream(connection.getOutputStream()); 
+             outputToServer.writeObject(uj);
+             outputToServer.flush();
+             
+            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String line;
+            while ((line = in.readLine()) != null) {
+               System.out.println(line);
+            }
+            //outputToServer.close();
 
+        } catch (Exception e) {
+            //System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Hiba", JOptionPane.ERROR_MESSAGE);
+          Logger.getLogger(ReceptKliens.class.getName()).log(Level.SEVERE, null, e);
+          
+
+        }
     }
 
     /*

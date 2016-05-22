@@ -33,7 +33,7 @@ public class LogonPanel extends JPanel {
         parent=gui;
         initialized = false;
         JTextField testTxt= new JTextField(30);
-        testTxt.setText(ReceptKliens.kapcsolatTeszt());
+        //testTxt.setText(ReceptKliens.kapcsolatTeszt());
         cim = new JLabel("Bejelentkezés");
         nevBel = new JLabel("Név:");
         this.userNeveBel = new JTextField(30);

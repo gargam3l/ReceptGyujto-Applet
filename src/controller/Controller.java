@@ -187,7 +187,7 @@ public class Controller {
                 
                 //Recept mentése az adatbázisba
                 
-                rKezelo.receptetMent(ujRecept);
+                ReceptKliens.receptetMent(ujRecept);
                  
                             
                 } catch (Exception ex)
