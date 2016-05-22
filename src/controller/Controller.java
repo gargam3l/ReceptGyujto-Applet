@@ -99,7 +99,7 @@ public class Controller {
                 
                 
                 //összetevő mennyiség típusok betöltése
-                gui.getNewRPanel().setOtevoList(rKezelo.otevoMennyTipusok());
+                gui.getNewRPanel().setOtevoList(ReceptKliens.otevoMennyTipusok());
                 
                 rKezelo.setAktualisMennyisegTipus("");
                 rKezelo.setAktualisOtevoSor(-1);
@@ -133,17 +133,17 @@ public class Controller {
                 cardLayout.show(gui.getContentPane(), "card3");
                     gui.getShRPanel().inicShowRecipePanelDefault();
                     //összetevő mennyiség típusok betöltése
-                    gui.getShRPanel().setOtevokList(rKezelo.otevoMennyTipusok());
+                    gui.getShRPanel().setOtevokList(ReceptKliens.otevoMennyTipusok());
                     
                     //Kiválasztott recepthez összetevők betöltésa
-                    rKezelo.getAktualisRecept().setOsszetevok(rKezelo.keresOsszetevoRecepthez(rKezelo.getAktualisRecept().getMegnevezes()));
+                    rKezelo.getAktualisRecept().setOsszetevok(ReceptKliens.keresOsszetevoRecepthez(rKezelo.getAktualisRecept().getMegnevezes()));
                     //Recept név betöltése guiba
                     gui.getShRPanel().setReceptNeve(aktReceptNeve);
                     //Összetevők töltése guiba
                     gui.getShRPanel().setOsszetevokTable(rKezelo.getAktualisRecept().getOsszetevokTablaban());
                     //Recept leírás betöltése guiba
                     gui.getShRPanel().setLeiras(rKezelo.getAktualisRecept().getLeiras());
-                    gui.getShRPanel().otevoOszlopotBeallit(gui.getShRPanel().getOsszetevokTable(), rKezelo.otevoMennyTipusok());
+                    gui.getShRPanel().otevoOszlopotBeallit(gui.getShRPanel().getOsszetevokTable(), ReceptKliens.otevoMennyTipusok());
                     
                     rKezelo.setAktualisOtevoSor(-1);
                     } catch (Exception ex)
@@ -215,7 +215,7 @@ public class Controller {
                      otevo.setOsszetevo_fajta(gui.getShRPanel().getOtevoTablaAdatCella(i, 2));
                      receptGui.osszetevotHozzaad(otevo);
                  }
-                 if (receptGui.equals(rKezelo.getAktualisRecept()))  rKezelo.receptetTorol(rKezelo.getAktualisRecept().getMegnevezes());
+                 if (receptGui.equals(rKezelo.getAktualisRecept()))  ReceptKliens.receptetTorol(rKezelo.getAktualisRecept().getMegnevezes());
                  gui.getSrchRPanel().setInitialized(false);
                  //CardLayout cardLayout = (CardLayout) gui.getCards().getLayout();
                  //   cardLayout.show(gui.getCards(), "card4");
@@ -251,7 +251,7 @@ public class Controller {
                      ujRecept.osszetevotHozzaad(otevo);
                  }
                  
-                    rKezelo.receptetSzerkeszt(rKezelo.getAktualisRecept().getMegnevezes(), ujRecept);
+                    ReceptKliens.receptetSzerkeszt(rKezelo.getAktualisRecept().getMegnevezes(), ujRecept);
                     
                     } catch (Exception ex)
                 {
@@ -268,7 +268,7 @@ public class Controller {
              @Override public void actionPerformed (ActionEvent e) {
                  try {
                  gui.getNewRPanel().addRowToOtevoTabla(new Object[]{gui.getNewRPanel().getOtevoMennyiseg(),rKezelo.getAktualisMennyisegTipus(),gui.getNewRPanel().getOtevoMegnevezes()});
-                 if (gui.getNewRPanel().getOtevoTablaAdat().getRowCount()==1) gui.getNewRPanel().otevoOszlopotBeallit(gui.getNewRPanel().getOtevoTabla(), rKezelo.otevoMennyTipusok());
+                 if (gui.getNewRPanel().getOtevoTablaAdat().getRowCount()==1) gui.getNewRPanel().otevoOszlopotBeallit(gui.getNewRPanel().getOtevoTabla(), ReceptKliens.otevoMennyTipusok());
                  } catch (Exception ex)
                 {
                     JOptionPane.showMessageDialog(gui, ex.getMessage(), "Hiba", JOptionPane.ERROR_MESSAGE);
@@ -300,7 +300,7 @@ public class Controller {
                  try{
                  
                  String kulcs=gui.getSrchRPanel().getReceptNeve();
-            ReceptTar tar=rKezelo.keresMegnevezesre(kulcs);
+            ReceptTar tar=ReceptKliens.keresMegnevezesre(kulcs);
             
             gui.getSrchRPanel().setTalalatTabla(tar.getReceptTablaFoAdatok());
              }

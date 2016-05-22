@@ -67,4 +67,10 @@ public class ReceptTar{
     {
         return tar.size();
     }
+
+    public void setTar(ArrayList<Recept> tar) {
+        this.tar = tar;
+    }
+    
+    
 }
