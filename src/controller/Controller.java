@@ -134,13 +134,15 @@ public class Controller {
                     gui.getShRPanel().inicShowRecipePanelDefault();
                     //összetevő mennyiség típusok betöltése
                     gui.getShRPanel().setOtevokList(ReceptKliens.otevoMennyTipusok());
-                    
+                    //JOptionPane.showMessageDialog(gui, "összetevő mennyiség típusok betöltése", "Hiba", JOptionPane.ERROR_MESSAGE);
                     //Kiválasztott recepthez összetevők betöltésa
                     rKezelo.getAktualisRecept().setOsszetevok(ReceptKliens.keresOsszetevoRecepthez(rKezelo.getAktualisRecept().getMegnevezes()));
+                    //JOptionPane.showMessageDialog(gui, "összetevők betöltése"+rKezelo.getAktualisRecept().getOsszetevok().toString(), "Hiba", JOptionPane.ERROR_MESSAGE);
                     //Recept név betöltése guiba
                     gui.getShRPanel().setReceptNeve(aktReceptNeve);
                     //Összetevők töltése guiba
                     gui.getShRPanel().setOsszetevokTable(rKezelo.getAktualisRecept().getOsszetevokTablaban());
+                    //JOptionPane.showMessageDialog(gui, "összetevők töltése guiba", "Hiba", JOptionPane.ERROR_MESSAGE);
                     //Recept leírás betöltése guiba
                     gui.getShRPanel().setLeiras(rKezelo.getAktualisRecept().getLeiras());
                     gui.getShRPanel().otevoOszlopotBeallit(gui.getShRPanel().getOsszetevokTable(), ReceptKliens.otevoMennyTipusok());

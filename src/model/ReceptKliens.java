@@ -174,7 +174,7 @@ public class ReceptKliens {
             //JOptionPane.showMessageDialog(null, dataURL.toString(),"URL", JOptionPane.ERROR_MESSAGE);
             //                     http://localhost:8084/ReceptGyujto-web/DBServ?action=otevoMennyTipus
             
-            URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=receptetMent");
+            URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=receptetSzerkeszt");
             
             URLConnection connection = dataURL.openConnection();
             connection.setUseCaches(false);
@@ -236,14 +236,20 @@ public class ReceptKliens {
      
      ArrayList<Osszetevok> eredmeny = new ArrayList<>();
      try {
+         
          String baseURL="http://localhost:8084/ReceptGyujto-web/DBServ?action=keresOsszetevoRecepthez";
          String param=URLEncoder.encode(kulcs, "UTF-8");
          
          URL dataURL = new URL(baseURL.concat("&kulcs="+param));
          
-         
+         //URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=keresOsszetevoRecepthez");
             URLConnection connection = dataURL.openConnection();
             connection.setUseCaches(false);
+            connection.setDoInput(true);
+            //connection.setDoOutput(true);
+            //ObjectOutputStream outputToServer = new ObjectOutputStream(connection.getOutputStream()); 
+             //outputToServer.writeUTF(kulcs);
+             //outputToServer.flush();
             ObjectInputStream in = new ObjectInputStream(connection.getInputStream());
             eredmeny=(ArrayList<Osszetevok>) in.readObject();
 
