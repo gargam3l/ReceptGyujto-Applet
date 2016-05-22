@@ -13,7 +13,7 @@ import java.util.*;
  *
  * @author Chlebovics Kornél
  */
-public class ReceptKezelo extends Observable  implements AdatbazisKapcsolat{
+public class ReceptKezelo {
     private ReceptTar tar;
     private Recept aktualisRecept;
     private Osszetevok aktualisOsszetevo;
@@ -39,18 +39,11 @@ public class ReceptKezelo extends Observable  implements AdatbazisKapcsolat{
     
     {
         tar.receptetHozzaad(recept);
-        setChanged();
-        notifyObservers(recept);
-    }
-    
-    
-    public Recept keres(String str)
-    {
-        notifyObservers();
-        return tar.megnevezestKeres(str);
         
     }
     
+    
+      
     
     
     public ArrayList<String> getNames()

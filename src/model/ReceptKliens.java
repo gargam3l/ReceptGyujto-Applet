@@ -236,8 +236,18 @@ public class ReceptKliens {
      
      ArrayList<Osszetevok> eredmeny = new ArrayList<>();
      try {
-                
-     
+         String baseURL="http://localhost:8084/ReceptGyujto-web/DBServ?action=keresOsszetevoRecepthez";
+         String param=URLEncoder.encode(kulcs, "UTF-8");
+         
+         URL dataURL = new URL(baseURL.concat("&kulcs="+param));
+         
+         
+            URLConnection connection = dataURL.openConnection();
+            connection.setUseCaches(false);
+            ObjectInputStream in = new ObjectInputStream(connection.getInputStream());
+            eredmeny=(ArrayList<Osszetevok>) in.readObject();
+
+            in.close();
      }
      catch(Exception e) {
      System.out.println(e.getMessage());
@@ -249,11 +259,36 @@ public class ReceptKliens {
      public static void receptetTorol(String receptNev)
      {
      try {
-     
-     }
-     catch(Exception e) {
-     System.out.println(e.getMessage());
-     }
+            
+            
+            URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=receptetTorol");
+            
+            URLConnection connection = dataURL.openConnection();
+            connection.setUseCaches(false);
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+                        
+             connection.setRequestProperty("Content-Type", "application/octet-stream");
+             
+             ObjectOutputStream outputToServer = new ObjectOutputStream(connection.getOutputStream()); 
+             outputToServer.writeUTF(receptNev);
+             outputToServer.flush();
+             
+             
+            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String line;
+            while ((line = in.readLine()) != null) {
+               System.out.println(line);
+            }
+            //outputToServer.close();
+
+        } catch (Exception e) {
+            //System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Hiba", JOptionPane.ERROR_MESSAGE);
+          Logger.getLogger(ReceptKliens.class.getName()).log(Level.SEVERE, null, e);
+          
+
+        }
      }
     
      
