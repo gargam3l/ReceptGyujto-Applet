@@ -396,13 +396,7 @@ public class Controller {
          };
     }
 
-    public ActionListener getKilepes() {
-        return new ActionListener() {
-             @Override public void actionPerformed (ActionEvent e) {
-                 gui.exit();
-             }
-        };  
-    }
+    
 
     public ActionListener getReceptMutatOsszetevotEltavolitListener() {
         return new ActionListener() {

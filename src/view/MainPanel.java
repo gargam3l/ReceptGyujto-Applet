@@ -16,7 +16,7 @@ public class MainPanel extends JPanel {
     private JButton ujRecept;
     private JPanel guiPanel;
     private JButton receptKeres;
-    private JButton vissza;
+    
     private boolean initialized;
     private GUI parent;
 
@@ -28,14 +28,14 @@ public class MainPanel extends JPanel {
         space1 = new JLabel("");
         receptKeres = new JButton("Recept Keresése");
         space2 = new JLabel("");
-        vissza = new JButton("Kilépés");
+        
 
         JTextField testTxt= new JTextField(30);
         //testTxt.setText(ReceptKliens.kapcsolatTeszt());
         
         ujRecept.addActionListener(parent.getController().getUjReceptPanelListener());
         receptKeres.addActionListener(parent.getController().getReceptKeresPanelListener());
-        vissza.addActionListener(parent.getController().getKilepes());
+        
         /*
         ujRecept.addActionListener(new ActionListener() {
 
@@ -86,7 +86,7 @@ public class MainPanel extends JPanel {
         space2.setFont(new Font("Courier New", 1, 24));
         space2.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
 
-        vissza.setFont(new Font("Courier New", 1, 14));
+        
 
         //add components
         add(cim);
@@ -95,7 +95,7 @@ public class MainPanel extends JPanel {
         add(space1);
         add(receptKeres);
         add(space2);
-        add(vissza);
+        
 
     }
 /*

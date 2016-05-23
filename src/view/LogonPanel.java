@@ -23,7 +23,7 @@ public class LogonPanel extends JPanel {
     private JLabel space3;
     private JButton btnRegisztracio;
     private JLabel space4;
-    private JButton btnKilepes;
+    
     private JFrame pFrame;
     private JPanel guiPanel;
     private boolean initialized;
@@ -45,7 +45,7 @@ public class LogonPanel extends JPanel {
         space3 = new JLabel("");
         this.btnRegisztracio = new JButton("Regisztráció");
         space4 = new JLabel("");
-        this.btnKilepes = new JButton("Kilépés");
+        
 
         btnBelepes.addActionListener(new ActionListener() {
 
@@ -67,14 +67,7 @@ public class LogonPanel extends JPanel {
             }
         }
         );
-        btnKilepes.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                parent.exit();
-            }
-        }
-        );
+        
 
         //adjust size and set layout
         setPreferredSize(new Dimension(400, 650));
@@ -111,7 +104,7 @@ public class LogonPanel extends JPanel {
         space4.setFont(new Font("Courier New", 1, 24));
         space4.setBorder(new EmptyBorder(new Insets(1, 1, 10, 1)));
 
-        btnKilepes.setFont(new Font("Courier New", 1, 14));
+        
 
         //add components
         add(cim);
@@ -127,7 +120,7 @@ public class LogonPanel extends JPanel {
         add(space3);
         add(btnRegisztracio);
         add(space4);
-        add(btnKilepes);
+        
 
     }
 /*
@@ -221,9 +214,7 @@ public class LogonPanel extends JPanel {
         this.parent = parent;
     }
 
-    public JButton getKilepes() {
-        return btnKilepes;
-    }
+    
 
     private String testDBServ() {
     try {

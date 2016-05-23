@@ -61,7 +61,7 @@ public class GUI extends JApplet {
         setURL();
         controller = new Controller();
         controller.setGui(this);
-
+        
         Runnable r = new Runnable() {
             public void run() {
                 displayApplet();
@@ -165,13 +165,7 @@ public class GUI extends JApplet {
     
      }
      */
-    public void exit() {
-
-        System.out.println("Application is exiting.");
-        setVisible(false);
-        ;
-        System.exit(0);
-    }
+    
 
     public Controller getGuiControl() {
         return guiControl;
