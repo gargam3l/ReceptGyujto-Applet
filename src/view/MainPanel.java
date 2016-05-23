@@ -27,11 +27,11 @@ public class MainPanel extends JPanel {
         space1 = new JLabel("");
         receptKeres = new JButton("Recept Keresése");
         space2 = new JLabel("");
-        vissza = new JButton("Kijelentkezés");
+        vissza = new JButton("Kilépés");
 
         ujRecept.addActionListener(parent.getController().getUjReceptPanelListener());
         receptKeres.addActionListener(parent.getController().getReceptKeresPanelListener());
-        vissza.addActionListener(parent.getController().getKijelentkezesGombListener());
+        vissza.addActionListener(parent.getController().getKilepes());
         /*
         ujRecept.addActionListener(new ActionListener() {
 

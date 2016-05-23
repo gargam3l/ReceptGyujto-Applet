@@ -69,51 +69,23 @@ public class ReceptKliens {
 
         try {
 
-            URL url = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=inic");
-            url.openConnection().connect();
+            URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=inic");
+            URLConnection connection = dataURL.openConnection();
+            connection.setUseCaches(false);
+            Reader reader = new InputStreamReader(dataURL.openStream(), "UTF-8");
+            // Return the string representation of the Date
+            String servRead = "";
+            int r;
+            while ((r = reader.read()) != -1) {
+                char ch = (char) r;
+                servRead = new StringBuilder(servRead).append(ch).toString();
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.toString() + " " + e.getMessage() + " " + e.getLocalizedMessage(), "Hiba", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    /*   
-     public static void kapcsolatNyit() {
-     try {
-     Class.forName(DRIVER);
-     kapcsolat = DriverManager.getConnection(URL, USER, PASSWORD);
-     }
-     catch (ClassNotFoundException e) {
-     //System.out.println("Hiba! Hiányzik a JDBC driver.");
-     throw new RuntimeException("Hiba! Hiányzik a JDBC driver.");
-     }
-     catch (SQLException e) {
-     //System.out.println("Hiba! Nem sikerült megnyitni a kapcsolatot az adatbázis-szerverrel.");
-     throw new RuntimeException("Hiba! Nem sikerült megnyitni a kapcsolatot az adatbázis-szerverrel. Kérem ellenőrizze, hogy a \"hr\" felhasználó megfelelően van konfigurálva az Oracle adatbázisban!");
-     }
-     }
-
-     public static void kapcsolatZár() {
-     try {
-     kapcsolat.close();
-     }
-     catch (SQLException e) {
-     System.out.println("Hiba! Nem sikerült lezárni a kapcsolatot az adatbázis-szerverrel.");
-     }
-     }
     
-    
-     public ReceptKezelo(ReceptTar tar) {
-     this.tar = tar;
-     }
-    
-     public void ujRecept(Recept recept)
-    
-     {
-     tar.receptetHozzaad(recept);
-     setChanged();
-     notifyObservers(recept);
-     }
-     */
     public static ArrayList<String> otevoMennyTipusok() {
         ArrayList<String> eredmeny = new ArrayList<>();
         try {

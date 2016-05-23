@@ -75,7 +75,8 @@ public class GUI extends JApplet {
         } catch (InvocationTargetException ite) {
             ite.printStackTrace();
         }
-        setURL();
+        //setURL();
+        //ReceptKliens.inic();
 
     }
 
@@ -108,7 +109,7 @@ public class GUI extends JApplet {
         add(srchRPanel, "card4");
         add(lPanel, "card5");
         add(rPanel, "card6");
-        cardLayout.show(getContentPane(), "card5");
+        cardLayout.show(getContentPane(), "card1");
 
         //setLayout(new CardLayout());
         //add(cards);
