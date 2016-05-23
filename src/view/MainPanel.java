@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import model.ReceptKliens;
 
 public class MainPanel extends JPanel {
 
@@ -29,6 +30,9 @@ public class MainPanel extends JPanel {
         space2 = new JLabel("");
         vissza = new JButton("Kilépés");
 
+        JTextField testTxt= new JTextField(30);
+        //testTxt.setText(ReceptKliens.kapcsolatTeszt());
+        
         ujRecept.addActionListener(parent.getController().getUjReceptPanelListener());
         receptKeres.addActionListener(parent.getController().getReceptKeresPanelListener());
         vissza.addActionListener(parent.getController().getKilepes());
@@ -86,6 +90,7 @@ public class MainPanel extends JPanel {
 
         //add components
         add(cim);
+        //add(testTxt);
         add(ujRecept);
         add(space1);
         add(receptKeres);

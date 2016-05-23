@@ -30,13 +30,13 @@ public class ReceptKliens {
     /**
      *
      */
-    public static URL url;
+    public static String url;
 
-    public static URL getUrl() {
+    public static String getUrl() {
         return url;
     }
 
-    public static void setUrl(URL url) {
+    public static void setUrl(String url) {
         ReceptKliens.url = url;
     }
 
@@ -45,9 +45,9 @@ public class ReceptKliens {
         try {
             // Construct a URL referring to the servlet
             //URL url = new URL(getCodeBase(), "/TestServlet");
-            URL url = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=test");
-
-            Reader reader = new InputStreamReader(url.openStream(), "UTF-8");
+            URL urlTest = new URL(url+"?action=test");
+            //JOptionPane.showMessageDialog(null, urlTest.toString(), "Hiba", JOptionPane.ERROR_MESSAGE);
+            Reader reader = new InputStreamReader(urlTest.openStream(), "UTF-8");
             // Return the string representation of the Date
             String servRead = "";
             int r;
@@ -69,7 +69,8 @@ public class ReceptKliens {
 
         try {
 
-            URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=inic");
+            //URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=inic");
+            URL dataURL = new URL(url+"?action=inic");
             URLConnection connection = dataURL.openConnection();
             connection.setUseCaches(false);
             Reader reader = new InputStreamReader(dataURL.openStream(), "UTF-8");
@@ -91,7 +92,8 @@ public class ReceptKliens {
         try {
             //URL dataURL = new URL(ReceptKliens.url, "?action=otevoMennyTipus");
             //JOptionPane.showMessageDialog(null, dataURL.toString(),"URL", JOptionPane.ERROR_MESSAGE);
-            URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=otevoMennyTipus");
+            //URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=otevoMennyTipus");
+            URL dataURL = new URL(url+"?action=otevoMennyTipus");
             URLConnection connection = dataURL.openConnection();
             connection.setUseCaches(false);
             ObjectInputStream in = new ObjectInputStream(connection.getInputStream());
@@ -110,7 +112,8 @@ public class ReceptKliens {
             //URL dataURL = new URL(ReceptKliens.url, "?action=otevoMennyTipus");
             //JOptionPane.showMessageDialog(null, dataURL.toString(),"URL", JOptionPane.ERROR_MESSAGE);
             //                     http://localhost:8084/ReceptGyujto-web/DBServ?action=otevoMennyTipus
-            URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=receptetMent");
+            //URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=receptetMent");
+            URL dataURL = new URL(url+"?action=receptetMent");
             URLConnection connection = dataURL.openConnection();
             connection.setUseCaches(false);
             connection.setDoInput(true);
@@ -146,8 +149,8 @@ public class ReceptKliens {
             //JOptionPane.showMessageDialog(null, dataURL.toString(),"URL", JOptionPane.ERROR_MESSAGE);
             //                     http://localhost:8084/ReceptGyujto-web/DBServ?action=otevoMennyTipus
             
-            URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=receptetSzerkeszt");
-            
+            //URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=receptetSzerkeszt");
+            URL dataURL = new URL(url+"?action=receptetSzerkeszt");
             URLConnection connection = dataURL.openConnection();
             connection.setUseCaches(false);
             connection.setDoInput(true);
@@ -183,7 +186,8 @@ public class ReceptKliens {
      {
      ReceptTar eredmeny = new ReceptTar();
      try {
-         String baseURL="http://localhost:8084/ReceptGyujto-web/DBServ?action=keresMegnevezesre";
+         //String baseURL="http://localhost:8084/ReceptGyujto-web/DBServ?action=keresMegnevezesre";
+         String baseURL=url+"?action=keresMegnevezesre";
          String param=URLEncoder.encode(kulcs, "UTF-8");
          
          URL dataURL = new URL(baseURL.concat("&kulcs="+param));
@@ -209,7 +213,8 @@ public class ReceptKliens {
      ArrayList<Osszetevok> eredmeny = new ArrayList<>();
      try {
          
-         String baseURL="http://localhost:8084/ReceptGyujto-web/DBServ?action=keresOsszetevoRecepthez";
+        // String baseURL="http://localhost:8084/ReceptGyujto-web/DBServ?action=keresOsszetevoRecepthez";
+         String baseURL=url+"?action=keresOsszetevoRecepthez";
          String param=URLEncoder.encode(kulcs, "UTF-8");
          
          URL dataURL = new URL(baseURL.concat("&kulcs="+param));
@@ -239,8 +244,8 @@ public class ReceptKliens {
      try {
             
             
-            URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=receptetTorol");
-            
+            //URL dataURL = new URL("http://localhost:8084/ReceptGyujto-web/DBServ?action=receptetTorol");
+            URL dataURL = new URL(url+"?action=receptetTorol");
             URLConnection connection = dataURL.openConnection();
             connection.setUseCaches(false);
             connection.setDoInput(true);

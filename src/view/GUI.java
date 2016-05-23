@@ -58,6 +58,7 @@ public class GUI extends JApplet {
      */
     @Override
     public void init() {
+        setURL();
         controller = new Controller();
         controller.setGui(this);
 
@@ -75,7 +76,7 @@ public class GUI extends JApplet {
         } catch (InvocationTargetException ite) {
             ite.printStackTrace();
         }
-        //setURL();
+        
         //ReceptKliens.inic();
 
     }
@@ -93,15 +94,7 @@ public class GUI extends JApplet {
         newRPanel = new NewRecipePanel(this);
         shRPanel = new ShowRecipePanel(this);
         srchRPanel = new SearchRecipePanel(this);
-        //lPanel.setParent(this);
-        //mPanel.setParent(this);
-        //shRPanel.setParent(this);
-        //newRPanel.setParent(this);
-        //srchRPanel.setParent(this);
-        //mPanel.setpFrame(frame);
-        //shRPanel.setpFrame(frame);
-        //newRPanel.setpFrame(frame);
-        //srchRPanel.setpFrame(frame);
+        
 
         add(mPanel, "card1");
         add(newRPanel, "card2");
@@ -194,15 +187,16 @@ public class GUI extends JApplet {
 
     public void setURL() {
         URL currentPage = getCodeBase();
+        String path= currentPage.getPath();
         String protocol = currentPage.getProtocol();
         String host = currentPage.getHost();
         int port = currentPage.getPort();
-        String urlSuffix1 = "/ReceptGyujto-web";
-        String urlSuffix2= "/DBServ";
+        String urlSuffix =  "DBServ";
         
         try {
-            URL urlTemp=new URL(protocol, host, port, urlSuffix1);
-            ReceptKliens.setUrl(new URL(urlTemp, urlSuffix2));
+            URL urlTemp=new URL(protocol, host, port, path+urlSuffix);
+            ReceptKliens.setUrl(urlTemp.toString());
+            //JOptionPane.showMessageDialog(this, urlTemp.toString(), "Hiba", JOptionPane.ERROR_MESSAGE);
         } catch (MalformedURLException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
